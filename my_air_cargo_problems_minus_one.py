@@ -48,7 +48,7 @@ class AirCargoProblem(Problem):
             list of Action objects
         """
 
-        # TODX create concrete Action objects based on the domain action schema for: Load, Unload, and Fly
+        # TODO create concrete Action objects based on the domain action schema for: Load, Unload, and Fly
         # concrete actions definition: specific literal action that does not include variables as with the schema
         # for example, the action schema 'Load(c, p, a)' can represent the concrete actions 'Load(C1, P1, SFO)'
         # or 'Load(C2, P2, JFK)'.  The actions for the planning problem must be concrete because the problems in
@@ -59,7 +59,7 @@ class AirCargoProblem(Problem):
 
             :return: list of Action objects
             """
-            #loads = []
+            loads = []
             # TODX create all load ground actions from the domain Load action
             
             #load_precond_pos = At(c,a) ^ At(p,a) ^ Cargo(c) ^ Plane(p) ^ Airport (a)
@@ -67,32 +67,15 @@ class AirCargoProblem(Problem):
             #load_effect_add = In(c,p)
             #load_effect_rem = At(c,a)
 
-            #load_precond_pos = [ expr("At(c,a)") , expr ("At(p,a)") , expr ("Cargo(c)") , expr ("Plane(p)") , expr ("Airport(a)")]
-            #load_effect_add  = [expr("In(c,p)")]
-            #load_effect_rem = [expr("At(c,a)")]
+            load_precond_pos = [ expr("At(c,a)") , expr ("At(p,a)") , expr ("Cargo(c)") , expr ("Plane(p)") , expr ("Airport(a)")]
+            load_effect_add  = [expr("In(c,p)")]
+            load_effect_rem = [expr("At(c,a)")]
 
             #below returns an action schema
-            #loads = Action(expr("Load(c,p,a)"),[load_precond_pos],[load_effect_add,load_effect_rem])
+            loads = Action(expr("Load(c,p,a)"),[load_precond_pos],[load_effect_add,load_effect_rem])
 
-            #return loads
-
-            loads = []
-            for c in self.cargo:
-                for a in self.airports:
-                        for p in self.planes:
-                            precond_pos = [expr("In({}, {})".format(c, p)),#Plane #From
-                                           expr("At({}, {})".format(p, a))
-                                           ]
-                            precond_neg = [
-                                           ]
-                            effect_rem = [expr("At({}, {})".format(c, a))]
-                            effect_add = [expr("In({}, {})".format(c, p))]
-                            load = Action(expr("Load({}, {}, {})".format(c, p, a)),
-                                         [precond_pos, precond_neg],
-                                         [effect_add, effect_rem])
-                            loads.append(load)
             return loads
-            
+
         def unload_actions():
             """Create all concrete Unload actions and return a list
 
@@ -104,32 +87,13 @@ class AirCargoProblem(Problem):
             #unload_effect_add = At(c, a)
             #unload_effect_rem = In(c, p)
 
-            #unload_precond_pos = [ expr("In(c,p)"), expr("At(p,a)"), expr("Cargo(c)"), expr ("Plane(p)"), expr ("Airport(a)")]
+            unload_precond_pos = [ expr("In(c,p)"), expr("At(p,a)"), expr("Cargo(c)"), expr ("Plane(p)"), expr ("Airport(a)")]
             
-            #unload_effect_add = [ expr("At(c,a)")]
-            #unload_effect_rem = [ expr("In(c,p)")]
+            unload_effect_add = [ expr("At(c,a)")]
+            unload_effect_rem = [ expr("In(c,p)")]
 
-            #unloads = Action(expr("Unload(c,p,a)"),[unload_precond_pos],[unload_effect_add,unload_effect_rem])
+            unloads = Action(expr("Unload(c,p,a)"),[unload_precond_pos],[unload_effect_add,unload_effect_rem])
             # TODX create all Unload ground actions from the domain Unload action
-            #return unloads
-            
-            ##^^minus_one^^##
-            
-            unloads = []
-            for c in self.cargo:
-                for a in self.airports:
-                        for p in self.planes:
-                            precond_pos = [expr("In({}, {})".format(c, p)),#Plane #From
-                                           expr("At({}, {})".format(p, a))
-                                           ]
-                            precond_neg = [
-                                           ]
-                            effect_add = [expr("At({}, {})".format(c, a))]
-                            effect_rem = [expr("In({}, {})".format(c, p))]
-                            unload = Action(expr("Unload({}, {}, {})".format(c, p, a)),
-                                         [precond_pos, precond_neg],
-                                         [effect_add, effect_rem])
-                            unloads.append(unload)
             return unloads
 
         def fly_actions():
@@ -163,7 +127,7 @@ class AirCargoProblem(Problem):
             e.g. 'FTTTFF'
         :return: list of Action objects
         """
-        # TODX implement
+        # TODO implement
         possible_actions = []
         kb = PropKB()
         kb.tell(decode_state(state, self.state_map).pos_sentence())
@@ -217,7 +181,7 @@ class AirCargoProblem(Problem):
         kb.tell(decode_state(state, self.state_map).pos_sentence())
         for clause in self.goal:
             if clause not in kb.clauses:
-                return False #test if the goal state is represented by the positive clauses
+                return False
         return True
 
     def h_1(self, node: Node):
@@ -246,15 +210,6 @@ class AirCargoProblem(Problem):
         """
         # TODO implement (see Russell-Norvig Ed-3 10.2.3  or Russell-Norvig Ed-2 11.2)
         count = 0
-        posSwap  = initial.pos
-        initial.pos = []
-         
-        node.expand(Problem)
-        stepList = node.path(Problem)
-        count = len(stepList)
-
-        initial.pos = posSwap
-
         return count
 
 
