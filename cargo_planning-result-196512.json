@@ -1,0 +1,160 @@
+{
+    "tests": [
+        {
+            "traceback": "NameError: name 'initial' is not defined\n",
+            "rubric_item_id": "5519",
+            "result": "E",
+            "description": "AirCargoProblem implements the ignore preconditions heuristic"
+        },
+        {
+            "traceback": "AttributeError: 'NoneType' object has no attribute 'solution'\n",
+            "rubric_item_id": "5516",
+            "result": "E",
+            "description": "AirCargoProblem yields a correct solution when input to breadth_first_search"
+        },
+        {
+            "traceback": "IndexError: list index out of range\n",
+            "rubric_item_id": "5519",
+            "result": "E",
+            "description": "Action levels have the correct number of actions"
+        },
+        {
+            "traceback": "IndexError: list index out of range\n",
+            "rubric_item_id": "5519",
+            "result": "E",
+            "description": "Literal levels have the correct number of literals"
+        },
+        {
+            "traceback": "IndexError: list index out of range\n",
+            "rubric_item_id": "5519",
+            "result": "E",
+            "description": "competing_needs_mutex behaves correctly"
+        },
+        {
+            "traceback": "IndexError: list index out of range\n",
+            "rubric_item_id": "5519",
+            "result": "E",
+            "description": "inconsistent_effects_mutex behaves correctly"
+        },
+        {
+            "traceback": "IndexError: list index out of range\n",
+            "rubric_item_id": "5519",
+            "result": "E",
+            "description": "inconsistent_support_mutex behaves correctly"
+        },
+        {
+            "traceback": "IndexError: list index out of range\n",
+            "rubric_item_id": "5519",
+            "result": "E",
+            "description": "interference_mutex behaves correctly"
+        },
+        {
+            "traceback": "IndexError: list index out of range\n",
+            "rubric_item_id": "5519",
+            "result": "E",
+            "description": "negation_mutex behaves correctly"
+        },
+        {
+            "traceback": "IndexError: list index out of range\n",
+            "rubric_item_id": "5519",
+            "result": "E",
+            "description": "Serialization of mutexes is correct"
+        },
+        {
+            "traceback": "IndexError: list index out of range\n",
+            "rubric_item_id": "5519",
+            "result": "E",
+            "description": "levelsum heuristic behaves correctly"
+        },
+        {
+            "traceback": "AssertionError: 24 != 32 : Incorrect number of fluents.\n",
+            "rubric_item_id": "5516",
+            "result": "F",
+            "description": "air_cargo_p3 returns the correct initial fluents"
+        },
+        {
+            "traceback": "AssertionError: Incorrect actions.\n\nYour code did not generate all required actions, which means that you may have skipped some combinations of fluents, or there may be an error in the action name or argument names that prevents a literal match with the signature specified in the schema.  Carefully review your actions against the schema defined in the project README.\nMissing actions:\n   Load(C2, P2, JFK)\n   Load(C1, P1, SFO)\n",
+            "rubric_item_id": "5516",
+            "result": "F",
+            "description": "AirCargoProblem correctly lists possible actions in a given state"
+        },
+        {
+            "traceback": "AssertionError: Incorrect actions.\n\nSome of the actions your code generated matched the name and arguments of an action, but the behavior of your action was not logically correct for that action.  This suggests that your preconditions or effects are incorrect for these actions.\nLogically mismatched actions:\n    Load(C1, P1, JFK)\n    Load(C2, P1, JFK)\n    Load(C2, P2, SFO)\n    Load(C2, P1, SFO)\n    Load(C1, P2, SFO)\n    Load(C2, P2, JFK)\n    Load(C1, P2, JFK)\n    Load(C1, P1, SFO)\n",
+            "rubric_item_id": "5516",
+            "result": "F",
+            "description": "AirCargoProblem correctly constructs all possible actions"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p1 returns the correct initial fluents"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p1 returns the correct goal fluents"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p1 returns an object of type problem"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p1 returns the correct initial values"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p2 returns the correct initial fluents"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p2 returns the correct goal fluents"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p2 returns an object of type problem"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p2 returns the correct initial values"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p3 returns the correct goal fluents"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p3 returns an object of type problem"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "air_cargo_p3 returns the correct initial values"
+        },
+        {
+            "traceback": "",
+            "rubric_item_id": "5516",
+            "result": ".",
+            "description": "AirCargoProblem correctly updates state for a given action"
+        }
+    ]
+}
